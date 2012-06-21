@@ -1,0 +1,53 @@
+{
+	"folders":
+	[
+		{
+			"folder_exclude_patterns":
+			[
+				".sass-cache"
+			],
+			"path": "."
+		}
+	],
+	"build_systems":
+	[
+		{			
+			"osx":
+			{
+				"cmd":
+				[
+					"open",
+					"-a",
+					"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+					"$project_path/index.html"
+				]
+			}
+		},
+		{
+			"cmd":
+			[
+				"open",
+				"-a",
+				"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+				"$project_path/test/index.html"
+			],
+			"name": "Test"
+		},
+		{
+			"selector": "source.js",
+			"cmd": 
+			[
+			  	"jshint", 
+			  	"$file", 
+			  	"--reporter", 
+			  	"$packages/JSHint/reporter.js"
+			],
+			"file_regex": "file:\\s(.+)\\]",
+			"line_regex": "(\\d+),(\\d+)",
+			"osx": {
+				"path": "/usr/local/bin"
+			},
+			"name": "JSLint"
+		}
+	]
+}
